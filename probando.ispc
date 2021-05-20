@@ -1,18 +1,32 @@
 
-export void simple_ispc(uniform float vin[], uniform float vout[],
-                   uniform int count) {
-    foreach (index = 0 ... count) {
-        // Load the appropriate input value for this program instance.
-        float v = vin[index];
+#include "params.h"
 
-        // Do an arbitrary little computation, but at least make the
-        // computation dependent on the value being processed
-        if (v < 3.)
-            v = v * v;
-        else
-            v = sqrt(v);
+#include "probando_ispc.h"
 
-        // And write the result to the output array.
-        vout[index] = v;
-    }
+#include <assert.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+//  = -logf(rand() / (float)RAND_MAX); 
+export void imprimiralgo() {
+    RNGState rngstate;
+    seed_rng(&rngstate, programIndex);
+    int r;
+    print(" %d",-logf(rdrand(&r)/ (float)2147483647);
+ );
+    print("\n soy r--> %d \n",r);
+    // float theta = sqrt(frandom(&rngstate));
+        print(" yo soy programIndex=%d",programIndex);
+        // print(" yo soy programIndex=%f",theta);
 }
+    
+
+    
+    
+    
+    
+    
+
+    
+    

@@ -169,6 +169,7 @@ static void photon(void)
 
     for (;;) {
         float t = -logf(rand() / (float)RAND_MAX); /* move */
+        printf("\n yo soy t %f \n",RAND_MAX);
         x += t * u;
         y += t * v;
         z += t * w;
@@ -218,7 +219,7 @@ int main(void)
     // start timer
     double start = wtime();
     // simulation
-    for (unsigned int i = 0; i < PHOTONS; ++i) {
+    for (unsigned int i = 0; i < 3; ++i) {
         photon();
     }
     // stop timer
@@ -238,6 +239,6 @@ int main(void)
                sqrt(heat2[i] - heat[i] * heat[i] / PHOTONS) / t / (i * i + i + 1.0f / 3.0f));
     }
     printf("# extra\t%12.5f\n", heat[SHELLS - 1] / PHOTONS);
-
+  imprimiralgo();
     return 0;
 }
